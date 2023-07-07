@@ -5,7 +5,7 @@ _Open source parallel C++ code for computing transition states of classical magn
 </header>
 
 ### Prerequisites
-The codes relies on the the Eigen library (https://eigen.tuxfamily.org/index.php?title=Main_Page) for some of the algebra and uses the mpich library (https://www.mpich.org) for the communication between the processes.
+Beyond the standard libraries used in C++, the codes relies on the the Eigen library (https://eigen.tuxfamily.org/index.php?title=Main_Page) for some of the algebra and uses the mpich library (https://www.mpich.org) for the communication between the processes.
 
 
 ### Initial configuration
