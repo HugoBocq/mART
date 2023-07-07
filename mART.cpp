@@ -39,7 +39,8 @@ class MEL{
 	double tol=1e-7; //tolerance in the transverse field to identify local minima and saddle points	
 	double gammamART=1; //parameter that dictates the relaxation in mART	
 	double epsilonMEL=0.1; //tolerance in the trust ratio 
-	
+	int krylovDimension=20; //dimension of the Krylov basis for the Lanczos algorithm
+
 	//
 	//parameters of the system MEL (single-ion terms and interaction terms)
 	//
@@ -631,13 +632,10 @@ class MEL{
 		Caution: does not update the hessian!
 		*/
 
-		//Lanczos 
-		double m=20; //number of iterations = number of force evalutations (N^2 operations)
-
-		//construct
-		MatrixXd Q=MatrixXd::Zero((D-1)*N, m);
-		VectorXd alphas=VectorXd::Zero(m);
-		VectorXd betas=VectorXd::Zero(m); 
+		//construct relevant quantities for Lanczos algorithm
+		MatrixXd Q=MatrixXd::Zero((D-1)*N, krylovDimension);
+		VectorXd alphas=VectorXd::Zero(krylovDimension);
+		VectorXd betas=VectorXd::Zero(krylovDimension); 
 
 		//initialize
 		VectorXd v_krylov=qMinEigen_sphBasis; 
@@ -652,7 +650,7 @@ class MEL{
 		splitN((D-1)*N, my_start, my_end, workloads, startInGlobal);
 
 		//main loop of Lanczos
-		for(int j=1; j<m;j++){
+		for(int j=1; j<krylovDimension;j++){
 			Q.col(j)=r/betas(j-1);
 			for(int k=my_start; k<my_end; k++){
 				v_krylov(k)=0; 
@@ -670,8 +668,8 @@ class MEL{
 			}		
 		}
 		//diagonalize triadiagonal matrix with elements alphas in the diag and betas in the sub-superdiag (QR algorithm)
-		SelfAdjointEigenSolver<MatrixXd> es(m);
-		es.computeFromTridiagonal(alphas, betas.head(m-1)); //constructor (head return the first m-1 values)
+		SelfAdjointEigenSolver<MatrixXd> es(krylovDimension);
+		es.computeFromTridiagonal(alphas, betas.head(krylovDimension-1)); //constructor (head return the first m-1 values)
 		lambdaMin=(es.eigenvalues())(0);
 		lambda2Min=(es.eigenvalues())(1); //second lowest eigenvalue
 		VectorXd qMinEigen_tridiagonal=es.eigenvectors().col(0); 
