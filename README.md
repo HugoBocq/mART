@@ -36,7 +36,7 @@ In the main function of the code, the different types of perturbation to activat
 
     
 ### Compiling and executing
-Compiling with mpiCC in -O2 -DNDEBUG mode produces the most efficient executable file, that can then be executed in parallel, for instance by mpiexec. On a personal computer, you can settup a parallel environment with the "lamboot" command (see "compile_execute.sh").  
+Compiling with mpiCC in -O2 -DNDEBUG mode produces the most efficient executable file, that can then be executed in parallel, for instance by mpiexec (see the bash file "compile_execute_mART.sh"). On a personal computer, you can settup a parallel environment with the "lamboot" command.  
 
 
 ### Reading outputs
