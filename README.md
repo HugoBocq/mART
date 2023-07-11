@@ -5,6 +5,7 @@ _Open source parallel C++ code for computing transition states of classical magn
 
 [![DOI](https://sandbox.zenodo.org/badge/662482897.svg)](https://sandbox.zenodo.org/badge/latestdoi/662482897)
 
+
 </header>
 
 ### Prerequisites
