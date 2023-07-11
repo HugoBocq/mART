@@ -5,7 +5,7 @@ _Open source parallel C++ code for computing transition states of classical magn
 </header>
 
 ### Prerequisites
-Beyond the standard libraries used in C++, the codes relies on the the Eigen library (https://eigen.tuxfamily.org/index.php?title=Main_Page) for some of the algebra and uses the mpich library (https://www.mpich.org) for the communication between the processes.
+Beyond the standard libraries used in C++, the code relies on the the Eigen library (https://eigen.tuxfamily.org/index.php?title=Main_Page) for some of the algebra and uses the mpich library (https://www.mpich.org) for the communication between the processes.
 
 
 ### Initial configuration
@@ -35,8 +35,8 @@ Also among the attributes of the class MEL, one can define the main algorithm pa
 In the main function of the code, the different types of perturbation to activate mART are commented out. One can select a uniform perturbation, a perturbation on one spin, a perturbation along one of the harmonic modes or a random direction of the global tangent space. 
 
     
-### Compiling
-Compiling with mpiCC in -DNDEBUG mode produces the most efficient executable file, that can then be executed in parallel, for instance by mpiexec. 
+### Compiling and executing
+Compiling with mpiCC in -O2 -DNDEBUG mode produces the most efficient executable file, that can then be executed in parallel, for instance by mpiexec. On a personal computer, you can settup a parallel environment with the "lamboot" command (see "compile_execute.sh").  
 
 
 ### Reading outputs
