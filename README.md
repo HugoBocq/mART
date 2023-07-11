@@ -46,4 +46,7 @@ If the tolerance in the transverse effective field is reached in the activation 
 
 #### Miscellaneous notes:
 - Variables containing _sphBasis are described according to the current spherical basis spanning the tangent space. Other variables are described in the D*N Euclidian space. 
-- Commented parts of the code enable for periodic boundary conditions in 1D and 2D.  
+- Commented parts of the code enable for periodic boundary conditions in 1D and 2D.
+
+
+Contact author: Hugo Bocquet (h.bocquet@protonmail.ch)
