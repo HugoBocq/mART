@@ -3,7 +3,7 @@
     
 _Open source parallel C++ code for computing transition states of classical magnetic systems_
 
-[![DOI](https://sandbox.zenodo.org/badge/662482897.svg)](https://sandbox.zenodo.org/badge/latestdoi/662482897)
+[![DOI](https://zenodo.org/badge/662482897.svg)](https://doi.org/10.5281/zenodo.18223298)
 
 </header>
 
